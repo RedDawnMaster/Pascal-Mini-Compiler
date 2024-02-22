@@ -1,0 +1,42 @@
+INT 	 5 
+LDA 	 0 
+LDI 	 10 
+STO 
+LDA 	 1 
+LDI 	 555 
+STO 
+LDA 	 2 
+LDI 	 999 
+STO 
+LDA 	 3 
+LDA 	 0 
+LDV 
+STO 
+LDA 	 3 
+LDV 
+LDI 	 1 
+EQL 
+BZE 	 22 
+LDI 	 1 
+PRN 
+BRN 	 41 
+LDA 	 3 
+LDV 
+LDI 	 2 
+EQL 
+BZE 	 30 
+LDI 	 2 
+PRN 
+BRN 	 41 
+LDA 	 3 
+LDV 
+LDI 	 3 
+EQL 
+BZE 	 38 
+LDI 	 3 
+PRN 
+BRN 	 41 
+LDA 	 3 
+LDV 
+PRN 
+HLT 

@@ -1,0 +1,28 @@
+PROGRAM ::= program ID ; BLOCK .
+BLOCK ::= CONSTANTS VARIABLES INSTRUCTIONS
+CONSTANTS ::= const ID = NUMBER ; { ID = NUMBER ; } | e
+VARIABLES ::= var ID { , ID } ; | e
+INSTRUCTIONS ::= begin INSTRUCTION { ; INSTRUCTION } end
+INSTRUCTION ::= INSTRUCTIONS | ASSIGNMENT | IF | WHILE | WRITE | READ | REPEAT | FOR | CASE | e
+ASSIGNMENT ::= ID ASSIGNMENT_OP EXPRESSION
+IF ::= if CONDITION then INSTRUCTION [ else INSTRUCTION | e ]
+WHILE ::= while CONDITION do INSTRUCTION
+WRITE ::= write ( EXPRESSION { , EXPRESSION } )
+READ ::= read ( ID { , ID } )
+CONDITION ::= EXPRESSION COMPARISON EXPRESSION
+ASSIGNMENT_OP ::= := | :=+ | :=- | :=* | :=/
+COMPARISON ::= = | <> | < | > | <= | >=
+EXPRESSION ::= TERM { ADDSUB_OP TERM }
+ADDSUB_OP ::= + | -
+TERM ::= FACTOR { MULDIV_OP FACTOR }
+MULDIV_OP ::= * | /
+FACTOR ::= ID | NUMBER | ( EXPRESSION )
+REPEAT ::= repeat INSTRUCTION until CONDITION
+FOR ::= for ID := NUMBER [ to | downto ] NUMBER do INSTRUCTION
+CASE ::= case ID of NUMBER : INSTRUCTION { NUMBER : INSTRUCTION }  [ else INSTRUCTION | e ] end
+COMMENT ::= { * } | // * \n
+
+ID ::= Letter { Letter | Digit }
+NUMBER ::= Digit { Digit }
+Digit ::= 0|..|9
+Letter ::= a|b|..|z|A|..|Z
